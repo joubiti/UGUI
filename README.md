@@ -6,6 +6,18 @@ of showing graphics, µGUI is not restricted to a certain display technology. Th
 technologies such as LCD, TFT, E-Paper, LED or OLED are supported. The whole module
 consists of three files: **ugui.c**, **ugui.h** and **ugui_config.h**.
 
+## Fork features
+This fork of µGUI introduces backend-specific user data storage to allow graphics backends to pass context (e.g., hardware driver instances) to the pset (draw pixel) callback without relying on global variables.
+
+Changes made:
+* Added void* user_data field to UG_GUI struct
+* Added API functions to fetch and set user context when needed
+
+```
+void  UG_SetUserData(UG_GUI* gui, void* data);
+void* UG_GetUserData(UG_GUI* gui);
+```
+
 ## µGUI Features
 * µGUI supports any color, grayscale or monochrome display
 * µGUI supports any display resolution
