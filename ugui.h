@@ -585,6 +585,7 @@ typedef struct
    UG_COLOR desktop_color;
    UG_U8 state;
    UG_DRIVER driver[NUMBER_OF_DRIVERS];
+   void* user_data;
 } UG_GUI;
 
 #define UG_SATUS_WAIT_FOR_UPDATE                      (1<<0)
@@ -913,6 +914,8 @@ void UG_WaitForUpdate( void );
 void UG_Update( void );
 void UG_DrawBMP( UG_S16 xp, UG_S16 yp, UG_BMP* bmp );
 void UG_TouchUpdate( UG_S16 xp, UG_S16 yp, UG_U8 state );
+void UG_SetUserData(UG_GUI* g, void* data);
+void* UG_GetUserData(UG_GUI* g);
 
 /* Driver functions */
 void UG_DriverRegister( UG_U8 type, void* driver );
